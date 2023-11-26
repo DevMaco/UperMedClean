@@ -12,10 +12,10 @@ export default function SignIn() {
   const [motDePasse, setMotDePasse] = useState('');
   const [erreurMotDePasse, setErreurMotDePasse] = useState('');
   const [erreurCodePostal, setErreurCodePostal] = useState('');
+  const [numeroTel, setNumeroTel] = useState('');
+  const [erreurNumeroTel, setErreurNumeroTel] = useState('');
 
   const handleValidation = () => {
-    // Effectue des actions en fonction des valeurs des variables d'état
-
     // Validation pour le mot de passe
     if (motDePasse.length < 8) {
       setErreurMotDePasse('Le mot de passe doit avoir au moins 8 caractères.');
@@ -36,6 +36,15 @@ export default function SignIn() {
       setErreurCodePostal('');
     }
 
+    // Validation pour le numéro de téléphone
+    const numeroTelRegex = /^(07|06)\d{8}$/;
+    if (!numeroTelRegex.test(numeroTel)) {
+      setErreurNumeroTel('Le numéro de téléphone doit commencer par "07" ou "06" et avoir 10 chiffres au total.');
+      return;
+    } else {
+      setErreurNumeroTel('');
+    }
+
     // Reste du code ici
     console.log('Nom Complet:', nomComplet);
     console.log('Prenom:', prenom);
@@ -44,6 +53,7 @@ export default function SignIn() {
     console.log('Ville:', ville);
     console.log('Code Postal:', codePostal);
     console.log('Adresse Mail:', adresseMail);
+    console.log('Numéro de Téléphone:', numeroTel);
     console.log('Mot de Passe:', motDePasse);
   };
 
@@ -117,6 +127,21 @@ export default function SignIn() {
               }}
             />
             {erreurCodePostal && <div className="text-red-500">{erreurCodePostal}</div>}
+          </div>
+          <div className='flex flex-col text-gray-100 py-2'>
+            <label>Numéro de Téléphone :</label>
+            <input
+              className='rounded-lg bg-white-800 mt-2 p-2 focus:border-blue-500 text-gray-800'
+              type="text"
+              value={numeroTel}
+            onChange={(e) => {
+  const inputNumeroTel = e.target.value;
+  if (/^[0-9]*$/.test(inputNumeroTel) && inputNumeroTel.length <= 10) {
+    setNumeroTel(inputNumeroTel);
+  }
+}}
+            />
+            {erreurNumeroTel && <div className="text-red-500">{erreurNumeroTel}</div>}
           </div>
           <div className='flex flex-col text-gray-100 py-2'>
             <label>Adresse Mail :</label>
