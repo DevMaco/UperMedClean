@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import loginImg from '../asset/UperLogin.jpg'
+import loginImg from '../asset/UperLogin.jpg';
+import Button from '@mui/material/Button';
+
+
 
 
 function RegisterUser() {
@@ -15,7 +18,7 @@ function RegisterUser() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password, }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
@@ -77,6 +80,7 @@ function RegisterUser() {
           <button className='w-full my-2 py-2 bg-yellow-500 shadow-lg shadow-teal-500/20 text-white font-semibold rounded-lg'>Inscrire un patient</button>
         </form>
       </div>
+      
     </div>
   );
 }
