@@ -1,46 +1,64 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const LoginForm = () => {
-  // State pour suivre les valeurs des champs du formulaire
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  // Fonction pour gérer les changements de la valeur du champ de l'utilisateur
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  // Fonction pour gérer les changements de la valeur du champ du mot de passe
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  // Fonction pour gérer la soumission du formulaire
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Effectuez ici des actions en fonction des valeurs du formulaire
-    console.log('Nom d\'utilisateur:', username);
-    console.log('Mot de passe:', password);
-    // Réinitialisez les valeurs du formulaire si nécessaire
-    setUsername('');
-    setPassword('');
-  };
-
+function PatientForm() {
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        MEDNom d'utilisateur:
-        <input type="text" value={username} onChange={handleUsernameChange} />
-      </label>
-      <br />
-      <label>
-        Mot de passe:
-        <input type="password" value={password} onChange={handlePasswordChange} />
-      </label>
-      <br />
-      <button type="submit">Se connecter</button>
-    </form>
-  );
-};
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 "></div>
 
-export default LoginForm;
+      <form className="max-w-[400PX]  bg-gray-100  p-2 px-2  rounded-lg">
+        <div className="flex flex-col text-gray-800 py-2">
+          <label>Nom </label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'email' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+        </div>
+        <div className="flex flex-col text-gray-800 py-2">
+          <label>Prenom</label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'password' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+          <div className="flex flex-col text-gray-800 py-2">
+          <label>Adresse</label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'email' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+        </div>
+        <div className="flex flex-col text-gray-800 py-2">
+          <label>Ville </label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'email' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+        </div>
+        <div className="flex flex-col text-gray-800 py-2">
+          <label>Code postal</label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'email' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+        </div>
+        <div className="flex flex-col text-gray-800 py-2">
+          <label>Téléphone</label>
+          {/* Utilisation du champ de texte lié à la variable d'état 'email' */}
+          <input
+            className="rounded-lg bg-gray-300 mt-2 p-2 focus:border-blue-500 text-gray-900"
+            type="text"
+          />
+        </div>
+
+        
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default PatientForm;
